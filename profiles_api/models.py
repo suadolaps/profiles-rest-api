@@ -10,7 +10,7 @@ class UserProfileManager(BaseUserManager):
 		if not email:
 			raise ValueError("User must have email address")
 
-		email = self.normalize.email(email)
+		email = self.normalize_email(email)
 		user = self.model(email=email, name=name)
 
 		user.set_password(password)
